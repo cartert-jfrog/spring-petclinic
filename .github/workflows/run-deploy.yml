@@ -18,7 +18,7 @@ jobs:
           distribution: 'temurin'
           
       - name: Setup JFrog CLI
-        uses: jfrog/setup-jfrog-cli@v4
+        uses: jfrog/setup-jfrog-cli@v4.5.11
         env:
           JF_URL: https://diamond.jfrog.io 
         with:
