@@ -26,6 +26,7 @@ jobs:
           JF_URL: https://diamond.jfrog.io 
         with:
           oidc-provider-name: setup-jfrog-cli 
+          oidc-audience: jfrog-github
           
       - name: Build with Maven
         run: mvn package
