@@ -23,7 +23,7 @@ jobs:
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v3
         env:
-          JF_URL: https://diamond.jfrog.io 
+          JF_URL: ${{ vars.JF_URL }} 
         with:
           oidc-provider-name: setup-jfrog-cli 
           oidc-audience: jfrog-github
