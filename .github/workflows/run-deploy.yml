@@ -1,3 +1,4 @@
+# OIDC Example for JFrog
 name: "Setup JFrog CLI OIDC Example"
 on: push
 
@@ -19,13 +20,13 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-      
-      - name: Request OIDC Token
-        run: |
-          token_url=$ACTIONS_ID_TOKEN_REQUEST_URL
-          token_request_token=$ACTIONS_ID_TOKEN_REQUEST_TOKEN
-          oidc_token=$(curl -H "Authorization: Bearer $token_request_token" "$token_url")
-          echo "OIDC token: $oidc_token" # (For demonstration, handle securely in production
+          
+      # Actions OIDC Debugger
+      - name: Debug OIDC Claims
+        uses: github/actions-oidc-debugger@main
+        with:
+          audience: '${{ github.server_url }}/${{ github.repository_owner }}'      
+
 
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v4
