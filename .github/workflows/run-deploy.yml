@@ -19,7 +19,14 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-          
+      
+      - name: Request OIDC Token
+        run: |
+          token_url=$ACTIONS_ID_TOKEN_REQUEST_URL
+          token_request_token=$ACTIONS_ID_TOKEN_REQUEST_TOKEN
+          oidc_token=$(curl -H "Authorization: Bearer $token_request_token" "$token_url")
+          echo "OIDC token: $oidc_token" # (For demonstration, handle securely in production
+
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v4
         env:
