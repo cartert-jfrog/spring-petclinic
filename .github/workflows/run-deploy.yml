@@ -1,14 +1,17 @@
 # OIDC Example for JFrog
-name: "Setup JFrog CLI OIDC Example"
+name: "JFrog CLI OIDC Example"
 on: push
 
+# Set to true to ignore new version warnings
 env:
   JFROG_CLI_AVOID_NEW_VERSION_WARNING: 'true'
-  
+
+# Token permissions for OIDC
 permissions:
   id-token: write
   contents: read
 
+# Setup environment with Ubuntu and Java 21
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -35,10 +38,13 @@ jobs:
         with:
           oidc-provider-name: setup-jfrog-cli 
           oidc-audience: jfrog-github
-          
+      
+      # Build the maven project and skip tests
       - name: Build with Maven
         run: mvn package -DskipTests
 
+      # Use the JFrog "jf" command to collect information from 
+      # the build and publish to Artifactory
       - name: Run JFrog CLI
         run: | 
           # Ping the server
