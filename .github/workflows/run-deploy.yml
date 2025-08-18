@@ -28,10 +28,10 @@ jobs:
           distribution: 'temurin'
           
       # Actions OIDC Debugger
-      - name: Debug OIDC Claims
-        uses: github/actions-oidc-debugger@main
-        with:
-          audience: '${{ github.server_url }}/${{ github.repository_owner }}'      
+      # - name: Debug OIDC Claims
+      #   uses: github/actions-oidc-debugger@main
+      #   with:
+      #     audience: '${{ github.server_url }}/${{ github.repository_owner }}'      
 
       # Setup the JFrog CLI to use with https://diamond.jfrog.io
       - name: Setup JFrog CLI
