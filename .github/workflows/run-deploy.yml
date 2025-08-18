@@ -8,8 +8,11 @@ env:
 
 # Token permissions for OIDC
 permissions:
-  id-token: write
-  contents: read
+  actions: read           # for detecting the Github Actions environment
+  id-token: write         # for creating OIDC tokens for signing
+  contents: write         # for creating fixing pull requests and pushing changes
+  pull-requests: write    # for creating pull requests to fix vulnerabilities
+  security-events: write  # for uploading SARIF results to GitHub Code Scanning
 
 # Setup environment with Ubuntu and Java 21
 jobs:
