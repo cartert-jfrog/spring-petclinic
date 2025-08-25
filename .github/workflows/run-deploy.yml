@@ -37,7 +37,7 @@ jobs:
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v4
         env:
-          JF_URL: ${{ vars.JF_URL }} 
+          JF_URL: ${{ vars.JF_URL2 }} 
         with:
           #oidc-provider-name: setup-jfrog-cli 
           #oidc-audience: jfrog-github
